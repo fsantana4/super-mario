@@ -40,7 +40,6 @@ const loop = setInterval(() => {
 
         isGameOver = true;
 
-        // Adiciona o listener para reiniciar o jogo ao pressionar qualquer tecla
         document.addEventListener('keydown', resetGame);
     }
 
