@@ -1,12 +1,19 @@
 const mario = document.querySelector('.mario');
 const pipe = document.querySelector('.pipe');
+let isGameOver = false;
 
 const jump = () => {
-    mario.classList.add('jump');
+    if (!isGameOver) {
+        mario.classList.add('jump');
     
-    setTimeout(() => {
-        mario.classList.remove('jump');
-    }, 500);
+        setTimeout(() => {
+            mario.classList.remove('jump');
+        }, 500);
+    }
+}
+
+const resetGame = () => {
+    location.reload();
 }
 
 const loop = setInterval(() => {
@@ -24,13 +31,17 @@ const loop = setInterval(() => {
         mario.style.animation = 'none';
         mario.style.bottom = `${marioPosition}px`;
 
-        mario.src = '/images/game-over.png'
-        mario.style.width = '75px'
-        mario.style.marginLeft = '50px'
+        mario.src = '/images/game-over.png';
+        mario.style.width = '75px';
+        mario.style.marginLeft = '50px';
 
         clearInterval(loop);
+
+        isGameOver = true;
+
+        document.addEventListener('keydown', resetGame);
     }
 
 }, 10);
 
-document.addEventListener('keydown', jump); 
+document.addEventListener('keydown', jump);
