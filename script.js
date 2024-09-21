@@ -13,7 +13,8 @@ const jump = () => {
 }
 
 const resetGame = () => {
-    location.reload();
+    location.reload(); 
+
 }
 
 const loop = setInterval(() => {
@@ -39,6 +40,7 @@ const loop = setInterval(() => {
 
         isGameOver = true;
 
+        // Adiciona o listener para reiniciar o jogo ao pressionar qualquer tecla
         document.addEventListener('keydown', resetGame);
     }
 
