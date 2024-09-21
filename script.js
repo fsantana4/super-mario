@@ -13,8 +13,8 @@ const jump = () => {
 }
 
 const resetGame = () => {
+    
     location.reload(); 
-
 }
 
 const loop = setInterval(() => {
@@ -40,9 +40,13 @@ const loop = setInterval(() => {
 
         isGameOver = true;
 
+        
         document.addEventListener('keydown', resetGame);
+        document.addEventListener('touchstart', resetGame); 
     }
 
 }, 10);
 
+
 document.addEventListener('keydown', jump);
+document.addEventListener('touchstart', jump); 
